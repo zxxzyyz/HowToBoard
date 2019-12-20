@@ -16,3 +16,29 @@ C:\a\local\path>
 ```
 dir /a:-d /o:ns /t:w /s >files.txt
 ```
+
+### ReplaceTextContent
+```
+echo off
+set BFR_STR1=01234
+set AFR_STR1=56789
+set BFR_STR2=ABCDE
+set AFR_STR2=FGHIJ
+
+set INPUT_FILE=D:.\test_before.txt
+set OUTPUT_FILE=.\test_after.txt
+
+del %OUTPUT_FILE%
+
+echo Start（%INPUT_FILE%）
+setlocal enabledelayedexpansion
+for /f "delims=" %%A in (%INPUT_FILE%) do (
+    set line0=%%A
+    set line1=!line0:%BFR_STR1%=%AFR_STR1%!
+    set line2=!line1:%BFR_STR2%=%AFR_STR2%!
+    echo !line2!>>%OUTPUT_FILE%
+)
+endlocal
+echo End
+pause
+```
