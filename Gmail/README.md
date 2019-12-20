@@ -3,29 +3,19 @@
 ### Filter
 1. 보낸 사람 검색
 from:
-
 예: from:지현
-
 2. 받는 사람 검색
 to:
-
 예: to:인성
-
 3. 메일 사본을 받는 사람 검색
 cc:
-
 bcc:
-
 예: cc:인성
-
 4. 제목에 포함된 단어
 subject:
-
 예: subject:저녁식사
-
 여러 검색어와 일치하는 메일
 OR 또는 { }
-
 예: from:지현 OR from:인성
 예: {from:지현 from:인성}
 
