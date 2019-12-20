@@ -42,3 +42,22 @@ endlocal
 echo End
 pause
 ```
+
+### TakeOwnership
+```
+takeown /F "C:\Windows\regedit.exe" /A
+/F - file to become owner of
+/A - means it will set the users group (ie. Administrators, not userxyz)
+
+icacls "C:\Windows\regedit.exe" /grant Administrators:F
+/grant - will add permissions
+:F - Full Control
+
+icacls "C:\Windows\regedit.exe" /setowner "NT SERVICE\TrustedInstaller"
+/setowner - new owner
+
+icacls "C:\Windows\regedit.exe" /grant:r Administrators:RX
+/grant:r - will set permissions (removing higher ones)
+:RX - Read and Execute
+```
+
