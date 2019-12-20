@@ -1,16 +1,16 @@
 # Sql Server
 
-### All databases in server
+### All databases in a server
 ```
 SELECT Name FROM dbo.sysdatabases
 ```
 
-### All tables in database
+### All tables in a database
 ```
 SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE='BASE TABLE'
 ```
 
-### All tables in server
+### All tables in a server
 ```
 SET NOCOUNT ON
 DECLARE @AllTables table (CompleteTableName nvarchar(4000))
@@ -58,7 +58,7 @@ CROSS APPLY sys.dm_exec_query_plan(plan_handle) as qp
 ORDER BY deqs.last_execution_time DESC
 ```
 
-### Counts of all tables in database
+### Count of all tables in database
 ```
 create table #tempcount (tablename nvarchar(128), record_count bigint)
 EXEC sp_msforeachtable 'insert #tempcount select ''?'', count(*) from ? with (nolock)'
@@ -101,7 +101,7 @@ ORDER BY
     2 DESC 
 ```
 
-### Search column
+### Search for column
 ```
 SELECT c.name AS ColName, t.name AS TableName
 FROM sys.columns c
@@ -109,7 +109,7 @@ JOIN sys.tables t ON c.object_id = t.object_id
 WHERE c.name LIKE '%ColumnName%' 
 ```
 
-### Searth string in all tables
+### Search for string in all tables
 ```
 DECLARE @SearchStr nvarchar(100)='string'
 CREATE TABLE #Results (ColumnName nvarchar(370), ColumnValue nvarchar(3630))
