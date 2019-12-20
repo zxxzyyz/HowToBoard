@@ -11,3 +11,8 @@ U:\a\network\path> popd
 C:\a\local\path> REM the U: drive has been deleted  
 C:\a\local\path>  
 ```
+
+### GetFilesNamesAndTime
+```
+dir /a:-d /o:ns /t:w /s >files.txt
+```
