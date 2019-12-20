@@ -1,14 +1,14 @@
 #Sql Server
 
 ### All databases in server
-'''
+```
 SELECT Name FROM dbo.sysdatabases
 ```
 
 ### All tables in database
-'''
+```
 SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE='BASE TABLE'
-'''
+```
 
 ### All tables in server
 ```
