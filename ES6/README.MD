@@ -6,7 +6,7 @@ EZ
 ```
 ### Arrow Function
 When you really need `this`
-```
+```Javascript
 const button = document.querySelector("#pushy");
 button.addEventListener("click", function() {
   console.log(this);
@@ -14,7 +14,7 @@ button.addEventListener("click", function() {
 });
 ```
 When you need a method to bind to an object
-```
+```Javascript
 const person = {
   points: 23,
   score() {
@@ -24,7 +24,7 @@ const person = {
 };
 ```
 When you need to add a prototype method
-```
+```Javascript
 class Car {
   constructor(make, colour) {
     this.make = make;
@@ -40,7 +40,7 @@ Car.prototype.summarize = function() {
 };
 ```
 When you need arguments object
-```
+```Javascript
 const orderChildren = function() {
   const children = Array.from(arguments);
   console.log(children);
@@ -51,7 +51,7 @@ const orderChildren = function() {
 };
 ```
 All other cases
-```
+```Javascript
 <li data-time="5:17">Flexbox Video</li><li data-time="8:22">Flexbox Video</li><li data-time="3:34">Redux Video</li>
 <li data-time="5:23">Flexbox Video</li><li data-time="7:12">Flexbox Video</li><li data-time="7:24">Redux Video</li>
 <li data-time="6:46">Flexbox Video</li><li data-time="4:45">Flexbox Video</li><li data-time="4:40">Flexbox Video</li>
@@ -78,7 +78,7 @@ console.log(filtered);
 ```
 ### Template Strings
 Example 1
-```
+```Javascript
 const dict = {
   HTML: 'Hyper Text Markup Language',
   CSS: 'Cascading Style Sheets',
