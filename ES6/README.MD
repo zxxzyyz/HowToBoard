@@ -103,7 +103,7 @@ const last = 'Bos';
 const sentence = addAbbreviations`Hi my name is ${first} ${last} and I love to code ${'JS'}, ${'HTML'} and ${'CSS'} all day and all night long!`
 ```
 Example 2
-```
+```Javascript
 <script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/0.8.2/purify.min.js"></script>
 <script>
   function sanitize(strings, ...values) {
