@@ -171,7 +171,7 @@ Example for Objects
 const { w: width = 400, h: height = 500 } = { w: 800 }
 ```
 Example for Arrays
-```
+```Javascript
 const details = ['Wes Bos', 123, 'wesbos.com'];
 const [name, id, website] = details;
 console.log(name, id, website);
@@ -189,7 +189,7 @@ let inRing = "Hulk Hogan";
 let onSide = "The Rock";
 [inRing, onSide] = [onSide, inRing];
 ```
-Example for Functions
+Examples for Functions
 ```Javascript
 // 1st Example
 function convertCurrency(amount) {
