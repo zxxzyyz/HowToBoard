@@ -5,8 +5,8 @@
 EZ
 ```
 ### Arrow Function
-```
 When you really need `this`
+```
 const button = document.querySelector("#pushy");
 button.addEventListener("click", function() {
   console.log(this);
@@ -75,4 +75,46 @@ const filtered = items
   .reduce((runningTotal, seconds) => runningTotal + seconds);
 
 console.log(filtered);
+```
+### Template Strings
+Example 1
+```
+const dict = {
+  HTML: 'Hyper Text Markup Language',
+  CSS: 'Cascading Style Sheets',
+  JS: 'JavaScript'
+};
+
+function addAbbreviations(strings, ...values) {
+  const abbreviated = values.map(value => {
+    if(dict[value]) {
+      return `<abbr title="${dict[value]}">${value}</abbr>`
+    }
+    return value;
+  });
+
+  return strings.reduce((sentence, string, i) => {
+    return sentence + string + (abbreviated[i] || '');
+  }, '');
+}
+
+const first = 'Wes';
+const last = 'Bos';
+const sentence = addAbbreviations`Hi my name is ${first} ${last} and I love to code ${'JS'}, ${'HTML'} and ${'CSS'} all day and all night long!`
+```
+Example 2
+```
+<script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/0.8.2/purify.min.js"></script>
+<script>
+  function sanitize(strings, ...values) {
+    const dirty = strings.reduce((prev, next, i) => `${prev}${next}${values[i] || ''}`, '');
+    return DOMPurify.sanitize(dirty);
+  }
+
+  const first = 'Wes';
+  const aboutMe = `I love to do evil <img src="http://unsplash.it/100/100?random" onload="alert('you got hacked');" />`;
+
+  const html = sanitize`<h3>${first}</h3><p>${aboutMe}</p>`;
+  document.body.innerHTML = html;
+</script>
 ```
