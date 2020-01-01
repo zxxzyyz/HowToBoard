@@ -209,3 +209,62 @@ function tipCalc({total = 100, tip = 0.15, tax = 0.13} = {}) {
 const bill = tipCalc();
 console.log(bill);
 ```
+### For Loop And Arrays
+```Javascript
+/* eslint-disable */
+Array.prototype.shuffle = function() {
+  let i = this.length, j;
+  if (i == 0) return this;
+  while (--i) {
+    j = Math.floor(Math.random() * (i + 1));
+    [i, j] = [j, i];
+  }
+  return this;
+}
+
+const cuts = ["Chuck", "Brisket", "Shank", "Short Rib"];
+
+cuts.shop = "MM MEats";
+
+for (let i = 0; i < cuts.length; i++) {
+  console.log(cuts[i]);
+}
+
+cuts.forEach((cut) => {
+  console.log(cut);
+  if(cut === 'Brisket') {
+    continue;
+  }
+});
+
+for (const index in cuts) {
+  console.log(cuts[index]);
+}
+
+for (const cut of cuts) {
+  if(cut === 'Brisket') {
+    continue;
+  }
+  console.log(cut);
+}
+
+for (const [i, cut] of cuts.entries()) {
+  console.log(`${cut} is the ${i + 1} item`);
+}
+
+function addUpNumbers() {
+  let total = 0;
+  for (const num of arguments) {
+    total += num;
+  }
+  console.log(total);
+  return total;
+}
+
+addUpNumbers(10,23,52,34,12,13,123);
+
+const name = 'Wes Bos';
+for (const char of name) {
+  console.log(char);
+}
+```
