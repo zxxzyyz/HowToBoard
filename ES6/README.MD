@@ -322,7 +322,7 @@ const oldWayPizzas = featured.concat.apply(featured.concat(["veg"]), specialty);
 // New way
 const newWayPizzas = [...featured, "veg", ...specialty];
 ```
-Spead 2
+Spread 2
 ```HTML
 <body>
   <h2 class="jump">SPREADS!</h2>
@@ -345,4 +345,24 @@ Spead 2
     */
   </script>
 </body>
+```
+Spread 3
+```Javascript
+const items = [
+  { id: 1, text: "Your id is 1" },
+  { id: 2, text: "Your id is 2" },
+  { id: 3, text: "Your id is 3" },
+  { id: 4, text: "Your id is 4" }
+];
+const index = items.findIndex(i => i.id === 4);
+const newItems = [...items.slice(0, index), ...items.slice(index + 1)];
+```
+Rest
+```Javascript
+function convertCurrency(rate, ...amounts) {
+  return amounts.map(amount => rate * amount);
+}
+
+const amounts = convertCurrency(1.26, 1, 4, 13, 29);
+console.log(amounts);
 ```
