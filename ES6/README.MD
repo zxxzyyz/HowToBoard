@@ -483,12 +483,12 @@ const listOfPhotos = fetch('https://jsonplaceholder.typicode.com/photos');
 // Multiple Promises
 Promise
   .all([listOfTodos, listOfPhotos])
-  .then(reponses => {
+  .then(responses => {
     return Promise.all(responses.map(response => response.json()))
   })
-  .then(reponses => {
+  .then(responses => {
     console.log(responses);
-  }).catach(err => {
+  }).catch(err => {
     console.error(err);
   });
 ```
