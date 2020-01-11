@@ -1,4 +1,4 @@
-### eslint
+### ESLint
 Declare global variables
 ```Javascript
 /* globals variable1 variable2 */
