@@ -1,5 +1,5 @@
 ### For Loop
-Loop
+Loops
 ```Javascript
 const cuts = ["Chuck", "Brisket", "Shank", "Short Rib"];
 cuts.shop = "MM MEats";
@@ -41,8 +41,8 @@ for (const char of name) {
   console.log(char);
 }
 ```
-```Javascript
 Use of Arguments
+```Javascript
 function addUpNumbers() {
   let total = 0;
   for (const num of arguments) {
