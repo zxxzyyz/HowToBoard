@@ -38,9 +38,83 @@ Example
 1 10 2
 2 1 1
 ```
-#####Output
+##### Output
 ```
 Yes
 No
 Yes
+```
+
+##### Solution
+```Javascript
+let testCases = Math.round(Math.random() * 100) + 1;
+while (testCases) {
+    solve();
+    //solveBruteForce();
+    --testCases;
+}
+
+function solve() {
+    let a = Math.round(Math.random() * 1000000000) + 1;
+    let b = Math.round(Math.random() * 1000000000) + 1;
+    let c = Math.round(Math.random() * 1000000000) + 1;
+    let max = Math.max(a, b, c);
+    console.log(a, b, c, (max > a + b + c - max + 1) ? "Yes" : "No");
+}
+
+function solveBruteForce() {
+    let last, next, result = "No";
+    let a = Math.round(Math.random() * 1000000000) + 1;
+    let b = Math.round(Math.random() * 1000000000) + 1;
+    let c = Math.round(Math.random() * 1000000000) + 1;
+    const intput = [a, b, c];
+    if (a > b) {
+        if (a > c) {
+            last = "red";
+        } else {
+            last = "blue";
+        }
+    } else {
+        if (b > c) {
+            last = "green";
+        } else {
+            last = "blue";
+        }
+    }
+    while (a + b + c) {
+        switch (last) {
+            case "red":
+                if (b > c) {
+                    next = "green";
+                    b--;
+                } else {
+                    next = "blue";
+                    c--;
+                }
+                break;
+            case "green":
+                if (a > c) {
+                    next = "red";
+                    a--;
+                } else {
+                    next = "blue";
+                    c--;
+                }
+                break;
+            case "blue":
+                if (a > b) {
+                    next = "red";
+                    a--;
+                } else {
+                    next = "green";
+                    b--;
+                }
+                break;
+        }
+        if (last === next || 0 > a || 0 > b || 0 > c) break;
+        last = next;
+    }
+    if (a + b + c === 0) result = "Yes";
+    console.log(input, result);
+}
 ```
